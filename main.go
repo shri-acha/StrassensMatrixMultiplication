@@ -10,5 +10,5 @@ func main() {
 
 	matrix := matrix_create(n)
 	matrix_display(matrix)
-	test(matrix)
+	matrix_split(matrix)
 }

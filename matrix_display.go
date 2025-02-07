@@ -7,4 +7,5 @@ func matrix_display(matrix [][]int) {
 	for _, row := range matrix {
 		fmt.Println(row)
 	}
+	fmt.Printf("\n")
 }
