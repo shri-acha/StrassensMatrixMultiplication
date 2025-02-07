@@ -9,7 +9,7 @@ func matrix_create(n int) (matrix [][]int) {
 
 	for i := 0; i < n; i++ {
 		for j := 0; j < n; j++ {
-			matrix[i][j] = 1
+			matrix[i][j] = counter
 			counter++
 		}
 	}
