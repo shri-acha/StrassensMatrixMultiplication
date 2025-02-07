@@ -12,12 +12,12 @@ func matrix_bruteforce(m1 [][]int, m2 [][]int) [][]int {
 
 	for i = 0; i < n; i++ {
 		for j = 0; j < n; j++ {
+			sum = 0
 			for k = 0; k < n; k++ {
 				pro := m1[i][k] * m2[k][j]
 				sum = sum + pro
 			}
 			m3[i][j] = sum
-			sum = 0
 		}
 	}
 	return m3

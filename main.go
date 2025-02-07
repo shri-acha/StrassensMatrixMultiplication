@@ -8,18 +8,12 @@ func main() {
 	fmt.Println("Enter matrix size: ")
 	fmt.Scan(&n)
 
-	matrix := matrix_create(n)
-	matrix_display(matrix)
-	m1, m2, m3, m4 := matrix_split(matrix)
+	matrix1 := matrix_create(n)
+	matrix2 := matrix_create(n)
+	matrix_display(matrix1)
+	matrix_display(matrix2)
 
-	matrix_display(m1)
-	matrix_display(m2)
-	matrix_display(m3)
-	matrix_display(m4)
+	pro := strassen(matrix1, matrix2)
+	matrix_display(pro)
 
-	product := matrix_bruteforce(m1, m2)
-	matrix_display(product)
-
-	sum := matrix_add(m2, m3, m4)
-	matrix_display(sum)
 }
