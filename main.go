@@ -16,4 +16,10 @@ func main() {
 	matrix_display(m2)
 	matrix_display(m3)
 	matrix_display(m4)
+
+	product := matrix_bruteforce(m1, m2)
+	matrix_display(product)
+
+	sum := matrix_add(m2, m3, m4)
+	matrix_display(sum)
 }
