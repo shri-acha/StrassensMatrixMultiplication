@@ -1,36 +1,23 @@
 package main
 
-func matrix_split(matrix [][]int) {
+func matrix_split(matrix [][]int) ([][]int, [][]int, [][]int, [][]int) {
 
-	rows := len(matrix)    // len(matrix) returns the number of rows
-	cols := len(matrix[0]) // Note that matrix[0] gives the first row and len(matrix[0])
-	//gives number of columns in first row.
+	n := len(matrix) // len(matrix) returns the number of rows
+	n_half := n / 2  // Splitting matrix into half its size
 
-	row_half := rows / 2
-	col_half := cols / 2
+	matrix_1 := make([][]int, n_half)
+	matrix_2 := make([][]int, n_half)
+	matrix_3 := make([][]int, n_half)
+	matrix_4 := make([][]int, n_half)
 
-	matrix_1 := make([][]int, row_half)
-	for i := 0; i < row_half; i++ {
-		matrix_1[i] = matrix[i][:col_half]
+	for i := 0; i < n_half; i++ {
+		matrix_1[i] = matrix[i][:n_half] // Top left :- For example, for 4x4 matrix, matrix[i] represents matrix[0] and matrix[1] here, indicating the first two rows.
+		//[:n_half] iterates from first column to the last column i.e 4/2 = 2nd column to give the corresponding 2 columns. Same thing done in the
+		//subsequent examples
+		matrix_2[i] = matrix[i][n_half:]        // Top right
+		matrix_3[i] = matrix[n_half+i][:n_half] //Bottom left
+		matrix_4[i] = matrix[n_half+i][n_half:] //Bottom right
 	}
 
-	matrix_2 := make([][]int, row_half)
-	for i := 0; i < row_half; i++ {
-		matrix_2[i] = matrix[i][col_half:]
-	}
+	return matrix_1, matrix_2, matrix_3, matrix_4
 
-	matrix_3 := make([][]int, row_half)
-	for i := 0; i < row_half; i++ {
-		matrix_3[i] = matrix[row_half+i][:col_half]
-	}
-
-	matrix_4 := make([][]int, row_half)
-	for i := 0; i < row_half; i++ {
-		matrix_4[i] = matrix[row_half+i][col_half:]
-	}
-
-	matrix_display(matrix_1)
-	matrix_display(matrix_2)
-	matrix_display(matrix_3)
-	matrix_display(matrix_4)
-}

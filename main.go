@@ -8,7 +8,12 @@ func main() {
 	fmt.Println("Enter matrix size: ")
 	fmt.Scan(&n)
 
-	matrix := matrix_create(n)
-	matrix_display(matrix)
-	matrix_split(matrix)
+	matrix1 := matrix_create(n)
+	matrix2 := matrix_create(n)
+	matrix_display(matrix1)
+	matrix_display(matrix2)
+
+	pro := strassen(matrix1, matrix2)
+	matrix_display(pro)
+
 }
