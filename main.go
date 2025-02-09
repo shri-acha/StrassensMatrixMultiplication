@@ -1,19 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+
+)
 
 func main() {
+  bruteForceTime := make(chan time.Duration) 
+  strassenTime := make(chan time.Duration) 
+  matrix := matrix_create(512) 
 
-	var n int
-	fmt.Println("Enter matrix size: ")
-	fmt.Scan(&n)
+  defer close(bruteForceTime)
+  defer close(strassenTime)
 
-	matrix1 := matrix_create(n)
-	matrix2 := matrix_create(n)
-	matrix_display(matrix1)
-	matrix_display(matrix2)
+  go BenchmarkOperationBruteForceMul(bruteForceTime,matrix)
+  go BenchmarkOperationStrassenMul(strassenTime,matrix)
 
-	pro := strassen(matrix1, matrix2)
-	matrix_display(pro)
-
+  fmt.Printf("%v:bruteForceTime\n",<-bruteForceTime)
+  fmt.Printf("%v:strassenTime\n",<-strassenTime)
 }

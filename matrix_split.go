@@ -20,4 +20,4 @@ func matrix_split(matrix [][]int) ([][]int, [][]int, [][]int, [][]int) {
 	}
 
 	return matrix_1, matrix_2, matrix_3, matrix_4
-
+}

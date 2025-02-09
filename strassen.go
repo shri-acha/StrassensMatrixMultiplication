@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+// import "fmt"
 
 func strassen(m1 [][]int, m2 [][]int) [][]int {
 	n := len(m1)
@@ -43,13 +43,13 @@ func strassen(m1 [][]int, m2 [][]int) [][]int {
 	ef := matrix_add(e, f)
 	p7 := strassen(ac, ef) // p7 = (a - c) * (e + f)
 
-	fmt.Println("P1:", p1)
-	fmt.Println("P2:", p2)
-	fmt.Println("P3:", p3)
-	fmt.Println("P4:", p4)
-	fmt.Println("P5:", p5)
-	fmt.Println("P6:", p6)
-	fmt.Println("P7:", p7)
+	// fmt.Println("P0:", p1)
+	// fmt.Println("P2:", p2)
+	// fmt.Println("P3:", p3)
+	// fmt.Println("P4:", p4)
+	// fmt.Println("P5:", p5)
+	// fmt.Println("P6:", p6)
+	// fmt.Println("P7:", p7)
 
 	c00 := matrix_sub(matrix_add(p1, p2, p4), p3)
 	// c00 = p1 + p2 - p3 + p4
