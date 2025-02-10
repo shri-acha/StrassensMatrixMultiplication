@@ -27,8 +27,6 @@ package main
 
 func padding(m [][]int, l int) [][]int {
 
-	l = nearest_power_of_2(l)
-
 	final_matrix := make([][]int, l)
 
 	for i := range final_matrix {

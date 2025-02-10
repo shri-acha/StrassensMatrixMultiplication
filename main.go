@@ -87,21 +87,27 @@ func main() {
 	fmt.Println("Generated Multiplier Matrix: ")
 	matrix_display(matrix2)
 
-	l := largest(r1, c1, c2)
+	l := nearest_power_of_2(largest(r1, c1, c2))
 
-	matrix1 = padding(matrix1, l)
-	fmt.Println("Multiplicand Matrix after padding: ")
-	matrix_display(matrix1)
+	if r1 != l || c1 != l {
+		matrix1 = padding(matrix1, l)
+		fmt.Println("Multiplicand Matrix after padding: ")
+		matrix_display(matrix1)
+	}
 
-	matrix2 = padding(matrix2, l)
-	fmt.Println("Multiplier Matrix after padding: ")
-	matrix_display(matrix2)
+	if r2 != l || c2 != l {
+		matrix2 = padding(matrix2, l)
+		fmt.Println("Multiplier Matrix after padding: ")
+		matrix_display(matrix2)
+	}
 
 	product := strassen(matrix1, matrix2)
 	fmt.Println("Product Matrix using Strassen's Algorithm: ")
 	matrix_display(product)
 
-	reducedProduct := reduced_matrix_size(product, r1, c2)
-	fmt.Println("Reduced Product Matrix: ")
-	matrix_display(reducedProduct)
+	if r1 != len(product) || c2 != len(product[0]) {
+		reducedProduct := reduced_matrix_size(product, r1, c2)
+		fmt.Println("Reduced Product Matrix: ")
+		matrix_display(reducedProduct)
+	}
 }
