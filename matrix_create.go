@@ -10,10 +10,10 @@ func matrix_create(r, c int) (matrix [][]int) {
 
 	for i := 0; i < r; i++ {
 		
-		counter := 0
+		counter := 1
 
 		for j := 0; j < c; j++ {
-			
+
 			matrix[i][j] = counter
 			counter++
 

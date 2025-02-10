@@ -87,13 +87,21 @@ func main() {
 	fmt.Println("Generated Multiplier Matrix: ")
 	matrix_display(matrix2)
 
+	l := largest(r1, c1, c2)
+
+	matrix1 = padding(matrix1, l)
 	fmt.Println("Multiplicand Matrix after padding: ")
 	matrix_display(matrix1)
+
+	matrix2 = padding(matrix2, l)
 	fmt.Println("Multiplier Matrix after padding: ")
 	matrix_display(matrix2)
 
-	// pro := strassen(matrix1, matrix2)
-	// fmt.Println("Product Matrix: ")
-	// matrix_display(pro)
+	product := strassen(matrix1, matrix2)
+	fmt.Println("Product Matrix using Strassen's Algorithm: ")
+	matrix_display(product)
 
+	reducedProduct := reduced_matrix_size(product, r1, c2)
+	fmt.Println("Reduced Product Matrix: ")
+	matrix_display(reducedProduct)
 }
