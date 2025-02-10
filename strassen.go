@@ -4,7 +4,7 @@ package main
 
 func strassen(m1 [][]int, m2 [][]int) [][]int {
 	n := len(m1)
-
+  const LEAF_SIZE = 8
 	final_matrix := make([][]int, n)
 
 	for i := range final_matrix {
@@ -12,7 +12,7 @@ func strassen(m1 [][]int, m2 [][]int) [][]int {
 		//is made here, refer to matrix_create.go
 	}
 
-	if n <= 2 {
+	if n <= LEAF_SIZE {
 		return matrix_bruteforce(m1, m2)
 	}
 

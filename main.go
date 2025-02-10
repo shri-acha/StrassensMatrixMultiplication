@@ -3,13 +3,12 @@ package main
 import (
 	"fmt"
 	"time"
-
 )
 
 func main() {
   bruteForceTime := make(chan time.Duration) 
   strassenTime := make(chan time.Duration) 
-  matrix := matrix_create(512) 
+  matrix := matrix_create(3) 
 
   defer close(bruteForceTime)
   defer close(strassenTime)
