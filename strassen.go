@@ -12,7 +12,7 @@ func strassen(m1 [][]int, m2 [][]int) [][]int {
 		//is made here, refer to matrix_create.go
 	}
 
-	if n <= LEAF_SIZE {
+	if n < LEAF_SIZE {
 		return matrix_bruteforce(m1, m2)
 	}
 
